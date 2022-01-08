@@ -27,4 +27,7 @@ jobs:
     steps:
     # Runs a single command using the runners shell
     - name: Run manual command
-      run: ${{ github.event.inputs.command }}
+      if: github.event.inputs.command == 'deploy-dev'
+      run: echo "${{ github.event.inputs.command }}"
+
+    
